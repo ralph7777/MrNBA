@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4">
+  <display-name></display-name>
+  
+  <!-- Index page -->
+  <servlet>
+    <servlet-name>IndexServlet</servlet-name>
+    <servlet-class>ralph.zhang.mrnba.servlet.IndexServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IndexServlet</servlet-name>
+    <url-pattern>/index</url-pattern>
+  </servlet-mapping>
+  
+ <!-- Talk -->
+  <servlet>
+  	<servlet-name>AutoReplyPServlet</servlet-name>
+ 	<servlet-class>ralph.zhang.mrnba.servlet.AutoReplyPServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AutoReplyPServlet</servlet-name>
+  	<url-pattern>/AutoReplyP.action</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>InitTalkPServlet</servlet-name>
+ 	<servlet-class>ralph.zhang.mrnba.servlet.InitTalkPServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>InitTalkPServlet</servlet-name>
+  	<url-pattern>/InitTalkP.action</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AutoReplyTServlet</servlet-name>
+ 	<servlet-class>ralph.zhang.mrnba.servlet.AutoReplyTServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AutoReplyTServlet</servlet-name>
+  	<url-pattern>/AutoReplyT.action</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>InitTalkTServlet</servlet-name>
+ 	<servlet-class>ralph.zhang.mrnba.servlet.InitTalkTServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>InitTalkTServlet</servlet-name>
+  	<url-pattern>/InitTalkT.action</url-pattern>
+  </servlet-mapping>
+   
+  
+  <!-- Player List -->
+  <servlet>
+    <servlet-name>PlayerMngServlet</servlet-name>
+    <servlet-class>ralph.zhang.mrnba.servlet.playermng.PlayerMngServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PlayerMngServlet</servlet-name>
+    <url-pattern>/PlayerList.action</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AddPlayerBtServlet</servlet-name>
+ 	<servlet-class>ralph.zhang.mrnba.servlet.playermng.AddPlayerBtServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddPlayerBtServlet</servlet-name>
+  	<url-pattern>/AddPlayerButton.action</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AddOnePlayerServlet</servlet-name>
+ 	<servlet-class>ralph.zhang.mrnba.servlet.playermng.AddOnePlayerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddOnePlayerServlet</servlet-name>
+  	<url-pattern>/AddOnePlayer.action</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>DeleteOnePlayerServlet</servlet-name>
+ 	<servlet-class>ralph.zhang.mrnba.servlet.playermng.DeleteOnePlayerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DeleteOnePlayerServlet</servlet-name>
+  	<url-pattern>/DeleteOnePlayer.action</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>DeleteBatchPlayerServlet</servlet-name>
+ 	<servlet-class>ralph.zhang.mrnba.servlet.playermng.DeleteBatchPlayerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DeleteBatchPlayerServlet</servlet-name>
+  	<url-pattern>/DeleteBatchPlayer.action</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Team List -->
+  <servlet>
+    <servlet-name>TeamMngServlet</servlet-name>
+    <servlet-class>ralph.zhang.mrnba.servlet.teammng.TeamMngServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TeamMngServlet</servlet-name>
+    <url-pattern>/TeamList.action</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AddTeamBtServlet</servlet-name>
+ 	<servlet-class>ralph.zhang.mrnba.servlet.teammng.AddTeamBtServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddTeamBtServlet</servlet-name>
+  	<url-pattern>/AddTeamButton.action</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AddOneTeamServlet</servlet-name>
+ 	<servlet-class>ralph.zhang.mrnba.servlet.teammng.AddOneTeamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddOneTeamServlet</servlet-name>
+  	<url-pattern>/AddOneTeam.action</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AddTeamInfoBtServlet</servlet-name>
+ 	<servlet-class>ralph.zhang.mrnba.servlet.teammng.AddTeamInfoBtServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddTeamInfoBtServlet</servlet-name>
+  	<url-pattern>/AddTeamInfoButton.action</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AddOneTeamInfoServlet</servlet-name>
+ 	<servlet-class>ralph.zhang.mrnba.servlet.teammng.AddOneTeamInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddOneTeamInfoServlet</servlet-name>
+  	<url-pattern>/AddOneTeamInfo.action</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UpdateTeamBtServlet</servlet-name>
+ 	<servlet-class>ralph.zhang.mrnba.servlet.teammng.UpdateTeamBtServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UpdateTeamBtServlet</servlet-name>
+  	<url-pattern>/UpdateTeamButton.action</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UpdateOneTeamServlet</servlet-name>
+ 	<servlet-class>ralph.zhang.mrnba.servlet.teammng.UpdateOneTeamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UpdateOneTeamServlet</servlet-name>
+  	<url-pattern>/UpdateOneTeam.action</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<servlet-name>DeleteOneTeamServlet</servlet-name>
+ 	<servlet-class>ralph.zhang.mrnba.servlet.teammng.DeleteOneTeamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DeleteOneTeamServlet</servlet-name>
+  	<url-pattern>/DeleteOneTeam.action</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<servlet-name>DeleteOneTeamInfoServlet</servlet-name>
+ 	<servlet-class>ralph.zhang.mrnba.servlet.teammng.DeleteOneTeamInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DeleteOneTeamInfoServlet</servlet-name>
+  	<url-pattern>/DeleteOneTeamInfo.action</url-pattern>
+  </servlet-mapping>
+
+  
+
+  
+</web-app>

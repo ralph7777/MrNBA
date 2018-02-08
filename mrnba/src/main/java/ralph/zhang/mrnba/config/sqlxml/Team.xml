@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+       Copyright 2009-2016 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- Define reference name -->
+<mapper namespace="Team">
+
+<!-- Define how to store the query results -->
+
+  <resultMap type="ralph.zhang.mrnba.bean.Team" id="Team">
+    <id column="name" jdbcType="VARCHAR" property="name"/>
+    <result column="fullname" jdbcType="VARCHAR" property="fullname"/>
+    <result column="state" jdbcType="VARCHAR" property="state"/>
+    <result column="year" jdbcType="VARCHAR" property="year"/>
+    <result column="arena" jdbcType="VARCHAR" property="arena"/>
+    <collection property="teamInfoList" resultMap="TeamInfo.Information" />
+  </resultMap>
+  
+  <resultMap type="ralph.zhang.mrnba.bean.Team" id="TeamList">
+    <id column="name" jdbcType="VARCHAR" property="name"/>
+    <result column="fullname" jdbcType="VARCHAR" property="fullname"/>
+    <result column="state" jdbcType="VARCHAR" property="state"/>
+    <result column="year" jdbcType="VARCHAR" property="year"/>
+    <result column="arena" jdbcType="VARCHAR" property="arena"/>
+  </resultMap>
+  
+<!-- Define SQL command -->
+  <select id="queryTeamList" parameterType="ralph.zhang.mrnba.bean.Team" resultMap="Team">
+    SELECT a.name, a.fullname, a.state, a.year, a.arena, b.id, b.information
+    FROM Team a LEFT JOIN Teaminfo b
+    ON a.name=b.name
+    <where>
+	    <!-- If statement to joint SQL command-->
+	    <if test="name != null and !&quot;&quot;.equals(name.trim())">
+	    	AND a.name=#{name}
+	    </if>
+	    <if test="fullname != null and !&quot;&quot;.equals(fullname.trim())">
+	    	AND a.fullname LIKE '%' #{fullname} '%'
+	    </if>
+    </where>
+  </select>
+  
+   <delete id="deleteOne" parameterType="java.lang.String">
+  	DELETE FROM Team WHERE name = #{_parameter}
+  </delete>
+ 
+  <update id="updateTeam" parameterType="ralph.zhang.mrnba.bean.Team">
+	UPDATE Team
+		<trim prefix="SET" suffixOverrides=","
+			suffix="WHERE name = #{name,jdbcType=VARCHAR}">
+			<if test="fullname != null and !&quot;&quot;.equals(fullname.trim())"> 
+				fullname = #{fullname,jdbcType=VARCHAR},
+			</if>
+			<if test="state != null and !&quot;&quot;.equals(state.trim())"> 
+				state = #{state,jdbcType=VARCHAR},
+			</if>
+			<if test="arena != null and !&quot;&quot;.equals(arena.trim())"> 
+				arena = #{arena,jdbcType=VARCHAR},
+			</if>
+			<if test="year != null and !&quot;&quot;.equals(year.trim())"> 
+				year = #{year,jdbcType=VARCHAR},
+			</if>
+		</trim>
+  </update>
+  
+  <insert id="addOne" parameterType="ralph.zhang.mrnba.bean.Team">
+    INSERT INTO Team
+		SET name=#{name}, fullname=#{fullname}, state=#{state}, year=#{year}, arena=#{arena}
+  </insert>
+  
+ 
+</mapper>
